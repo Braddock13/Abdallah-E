@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRADING lite-PRO BUSINESSCLUB - Indépendance financière pour tous</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a3d62;
+            --secondary: #1e90ff;
+            --accent: #00b894;
+            --gold: #fbc531;
+            --light: #f5f6fa;
+            --dark: #2f3640;
+            --success: #44bd32;
+            --gradient: linear-gradient(135deg, var(--secondary), var(--accent));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.9)), url('https://images.unsplash.com/photo-1620336655052-b57986f5a26a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 1rem;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: #ffd32a;
+        }
+        
+        .mission {
+            padding: 100px 0;
+            background: white;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .mission-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background: var(--light);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .formations {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 100px 0;
+        }
+        
+        .formation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .formation-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .formation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .formation-header {
+            background: var(--gradient);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .formation-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .formation-body {
+            padding: 30px;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .formation-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .formation-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .formation-list li i {
+            color: var(--accent);
+        }
+        
+        .crypto-bonus {
+            background: var(--success);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-content h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+            background: var(--light);
+            padding: 25px;
+            border-radius: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            width: 40px;
+        }
+        
+        .services {
+            background: linear-gradient(to bottom, #e9ecef, #f8f9fa);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .service-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            max-width: 350px;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .service-card:hover h3,
+        .service-card:hover i,
+        .service-card:hover p {
+            color: white;
+        }
+        
+        .service-card i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .contact {
+            padding: 100px 0;
+            background: var(--primary);
+            color: white;
+        }
+        
+        .contact h2 {
+            color: white;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .contact-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-details .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .contact-button {
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .contact-button:hover {
+            background: #ffd32a;
+            transform: translateY(-3px);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/22656450539" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <h1>TRADING lite-PRO BUSINESSCLUB</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#formations">Formations</a></li>
+                    <li><a href="#apropos">À Propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h2>L'indépendance financière à portée de main</h2>
+            <p>Formations en trading et cryptomonnaies pour les jeunes ambitieux passionnés du monde numérique</p>
+            <a href="#formations" class="cta-button">Découvrir nos formations</a>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <h2 class="section-title">Notre Mission</h2>
+            <div class="mission-content">
+                <p>Chez TRADING lite-PRO BUSINESSCLUB, nous œuvrons pour créer un monde meilleur en rendant le trading accessible aux jeunes ambitieux. Notre mission est d'arroser la plante de l'indépendance financière, de bannir la pauvreté et ses conséquences, pour que chacun puisse réaliser son plein potentiel.</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Croissance Financière</h3>
+                    <p>Développez vos compétences financières et faites croître votre patrimoine</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Formation Complète</h3>
+                    <p>Programmes adaptés à tous les niveaux, du débutant à l'expert</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Accompagnement</h3>
+                    <p>Suivi personnalisé pour garantir votre réussite</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formations Section -->
+    <section class="formations" id="formations">
+        <div class="container">
+            <h2 class="section-title">Nos Formations</h2>
+            <p class="mission-content">Des programmes conçus pour vous amener du niveau débutant à celui d'expert en trading et cryptomonnaies</p>
+            
+            <div class="formation-grid">
+                <!-- Formation Trading Débutant -->
+                <div class="formation-card">
+                    <div class="formation-header">
+                        <h3>Initiation au Trading</h3>
+                        <p>Niveau Débutant</p>
+                    </div>
+                    <div class="formation-body">
+                        <div class="price">25 000 FCFA</div>
+                        <ul class="formation-list">
+                            <li><i class="fas fa-check-circle"></i> Bases du marché financier</li>
+                            <li><i class="fas fa-check-circle"></i> Analyse technique fondamentale</li>
+                            <li><i class="fas fa-check-circle"></i> Gestion du risque</li>
+                            <li><i class="fas fa-check-circle"></i> Premières stratégies de trading</li>
+                            <li><i class="fas fa-check-circle"></i> Utilisation des plateformes</li>
+                        </ul>
+                        <a href="#contact" class="cta-button">S'inscrire maintenant</a>
+                    </div>
+                </div>
+                
+                <!-- Formation Trading Intermédiaire -->
+                <div class="formation-card">
+                    <div class="formation-header">
+                        <h3>Trading Intermédiaire</h3>
+                        <p>Approfondissement des connaissances</p>
+                    </div>
+                    <div class="formation-body">
+                        <div class="price">45 000 FCFA</div>
+                        <ul class="formation-list">
+                            <li><i class="fas fa-check-circle"></i> Stratégies avancées</li>
+                            <li><i class="fas fa-check-circle"></i> Analyse technique approfondie</li>
+                            <li><i class="fas fa-check-circle"></i> Trading algorithmique</li>
+                            <li><i class="fas fa-check-circle"></i> Gestion de portefeuille</li>
+                            <li><i class="fas fa-check-circle"></i> Psychologie du trader</li>
+                        </ul>
+                        <a href="#contact" class="cta-button">S'inscrire maintenant</a>
+                    </div>
+                </div>
+                
+                <!-- Formation Trading Avancé -->
+                <div class="formation-card">
+                    <div class="formation-header">
+                        <h3>Trading Avancé</h3>
+                        <p>Devenez un expert</p>
+                    </div>
+                    <div class="formation-body">
+                        <div class="price">75 000 FCFA</div>
+                        <ul class="formation-list">
+                            <li><i class="fas fa-check-circle"></i> Techniques professionnelles</li>
+                            <li><i class="fas fa-check-circle"></i> Trading haute fréquence</li>
+                            <li><i class="fas fa-check-circle"></i> Analyse fondamentale avancée</li>
+                            <li><i class="fas fa-check-circle"></i> Développement de stratégies</li>
+                            <li><i class="fas fa-check-circle"></i> Mentorat personnalisé</li>
+                        </ul>
+                        <a href="#contact" class="cta-button">S'inscrire maintenant</a>
+                    </div>
+                </div>
+                
+                <!-- Formation Cryptomonnaies -->
+                <div class="formation-card">
+                    <div class="formation-header">
+                        <h3>Cryptomonnaies</h3>
+                        <p>Pour les novices</p>
+                    </div>
+                    <div class="formation-body">
+                        <div class="price">17 500 FCFA</div>
+                        <ul class="formation-list">
+                            <li><i class="fas fa-check-circle"></i> Création de wallet</li>
+                            <li><i class="fas fa-check-circle"></i> Sécurité des cryptos</li>
+                            <li><i class="fas fa-check-circle"></i> Techniques de holding</li>
+                            <li><i class="fas fa-check-circle"></i> Staking et revenus passifs</li>
+                            <li><i class="fas fa-check-circle"></i> Analyse du marché crypto</li>
+                        </ul>
+                        <div class="crypto-bonus">
+                            <p>BONUS: Vous recevrez vos premières pièces de cryptomonnaies à la fin de la formation !</p>
+                        </div>
+                        <a href="#contact" class="cta-button">S'inscrire maintenant</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="apropos">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="C:\Users\Lenovo\OneDrive\Pictures\Moi.jpg">
+            </div>
+            <div class="about-content">
+                <h2 class="section-title">Abdallah K alias Élie</h2>
+                <p>Fondateur du TRADING lite-PRO BUSINESSCLUB, je suis passionné par le trading et les cryptomonnaies depuis plusieurs années. Mon objectif est de partager mes connaissances et mon expérience pour rendre ces domaines accessibles à tous.</p>
+                <p>Je crois fermement que l'indépendance financière est à la portée de chacun, et j'ai créé ce club pour vous donner les outils nécessaires pour y parvenir. Mon approche pédagogique met l'accent sur la pratique, la sécurité et la gestion des risques.</p>
+                
+                <div class="contact-info">
+                    <h3>Contact Direct</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>abdallahkabore82@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+226 56450539 (Appel et WhatsApp)</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-comment-alt"></i>
+                        <span>Disponible pour toutes vos questions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Autres Services</h2>
+            <p class="mission-content">En plus des formations, je propose des services pour développer votre présence numérique</p>
+            
+            <div class="service-cards">
+                <div class="service-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Sites Web Personnels</h3>
+                    <p>Création de sites web sur mesure pour votre activité ou votre entreprise</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Applications Mobiles</h3>
+                    <p>Développement d'applications iOS et Android adaptées à vos besoins</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h3>Conseil en Trading</h3>
+                    <p>Accompagnement personnalisé pour optimiser vos stratégies de trading</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px; font-size: 1.2rem;">
+                <p><strong>Contactez-moi sur WhatsApp au +226 56450539 pour discuter de votre projet</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-nous</h2>
+            
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom Complet</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="formation">Formation Intéressée</label>
+                            <select id="formation" style="width: 100%; padding: 15px; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 1rem;">
+                                <option value="">Sélectionnez une formation</option>
+                                <option value="debutant">Trading Débutant - 25 000 FCFA</option>
+                                <option value="intermediaire">Trading Intermédiaire - 45 000 FCFA</option>
+                                <option value="avance">Trading Avancé - 75 000 FCFA</option>
+                                <option value="crypto">Cryptomonnaies - 17 500 FCFA</option>
+                                <option value="autre">Autre service</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="contact-button">Envoyer votre message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Adresse</h3>
+                            <p>Ouagadougou, Burkina Faso</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>Téléphone</h3>
+                            <p>+226 56450539 (Appel/WhatsApp)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>abdallahkabore82@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Horaires</h3>
+                            <p>Lundi-Vendredi: 9h00 - 18h00</p>
+                            <p>Samedi: 10h00 - 15h00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TRADING lite-PRO BUSINESSCLUB</h3>
+                    <p>L'indépendance financière pour les jeunes ambitieux passionnés du monde numérique</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Liens Rapides</h3>
+                    <p><a href="#accueil" style="color: #aaa; text-decoration: none;">Accueil</a></p>
+                    <p><a href="#formations" style="color: #aaa; text-decoration: none;">Formations</a></p>
+                    <p><a href="#services" style="color: #aaa; text-decoration: none;">Services</a></p>
+                    <p><a href="#contact" style="color: #aaa; text-decoration: none;">Contact</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contactez-nous</h3>
+                    <p><i class="fas fa-phone-alt"></i> +226 56450539</p>
+                    <p><i class="fas fa-envelope"></i> abdallahkabore82@gmail.com</p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/22656450539" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 TRADING lite-PRO BUSINESSCLUB. Tous droits réservés.</p>
+                <p>Créé par Abdallah K alias Élie</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if(name && email && message) {
+                alert('Merci pour votre message, ' + name + '! Nous vous contacterons très bientôt.');
+                this.reset();
+            } else {
+                alert('Veuillez remplir tous les champs obligatoires.');
+            }
+        });
+        
+        // WhatsApp redirection
+        document.querySelector('.whatsapp-float').addEventListener('click', function() {
+            window.open('https://wa.me/22656450539', '_blank');
+        });
+    </script>
+</body>
+</html>
